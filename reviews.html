@@ -7,15 +7,16 @@
   <meta name="description" content="شوف تقييمات الزوار وشارك تجربتك في ميت غمر أسفل كوبرى زفتى.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
+
   <header class="site-header">
     <nav class="nav container">
       <a href="index.html" class="brand">
-        <img src="images/logo.jpg" alt="شعار ميت غمر" class="brand-logo">
-        <span class="brand-name">ميت غمر</span>
+        <img src="images/logo.png" alt="شعار الكافيه" class="brand-logo">
+        <span class="brand-name">ميت غمر <em>كافيه</em></span>
       </a>
       <div class="nav-pill">
         <a href="index.html" class="nav-link">الرئيسية</a>
@@ -26,16 +27,16 @@
 
   <main class="container">
     <header class="page-head anim-rise">
-      <p class="eyebrow">رأيك يهمنا</p>
-      <h1 class="page-title">التقييمات</h1>
+      <p class="eyebrow">✦ رأيك يهمنا</p>
+      <h1 class="page-title">تقييمات الزوار</h1>
     </header>
 
     <div class="reviews-grid">
       <section>
-        <h2 class="section-label">عدد التقييمات <span id="reviewsCount" class="count-pill">0</span></h2>
+        <h2 class="section-label">التقييمات <span id="reviewsCount" class="count-pill">0</span></h2>
         <ul id="reviewsList" class="reviews-list" aria-live="polite">
           <li id="reviewsEmpty" class="empty-state hidden">
-            <div class="empty-icon" aria-hidden="true">★</div>
+            <div class="empty-icon" aria-hidden="true">☕</div>
             <p class="empty-title">لسه مفيش تقييمات.</p>
             <p class="empty-sub">خليك أول واحد يشارك رأيه!</p>
           </li>
@@ -50,7 +51,7 @@
         <div id="formSuccess" class="success-box hidden">
           <div class="success-icon" aria-hidden="true">✓</div>
           <p class="success-title">مرسي عالمشاركة! تقييمك اتحفظ.</p>
-          <p class="success-sub">انعش الصفحة عشان تشوفه في القائمة.</p>
+          <p class="success-sub">تقييمك هيتعرض في القائمة فوراً.</p>
         </div>
 
         <form id="reviewForm" class="review-form">
@@ -86,7 +87,7 @@
                       placeholder="إيه رأيك في القهوة والجو؟" class="input"></textarea>
           </div>
 
-          <button type="submit" id="submitBtn" class="btn btn-full">أضف التقييم</button>
+          <button type="submit" id="submitBtn" class="btn btn-full">أضف التقييم ☕</button>
         </form>
       </aside>
     </div>
@@ -94,15 +95,15 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <img src="images/logo.jpg" alt="شعار ميت غمر" class="footer-logo">
+      <img src="images/logo.png" alt="لوجو الكافيه" class="footer-logo">
       <p class="footer-name">ميت غمر أسفل كوبرى زفتى</p>
-      <p class="footer-tagline">رأيك يهمنا.</p>
+      <p class="footer-tagline">رأيك يهمنا، ونستناك دايماً.</p>
     </div>
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
   <script src="js/firebase-config.js"></script>
-  <script src="js/rating.js?v=2"></script>
+  <script src="js/rating.js?v=3"></script>
 </body>
 </html>

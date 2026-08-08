@@ -95,7 +95,7 @@ function initPicker() {
 
 // ── reviews list (reviews page) ──
 
-const AVATAR_COLORS = ['#0e7c86', '#e2693e', '#0a4b52', '#b45309', '#0f766e', '#9a3412'];
+const AVATAR_COLORS = ['#d97706', '#b45309', '#92400e', '#a16207', '#c2410c', '#78350f'];
 
 function buildAvatar(name) {
   const div = document.createElement('div');
