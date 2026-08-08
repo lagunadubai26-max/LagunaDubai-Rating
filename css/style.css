@@ -228,6 +228,7 @@ img { max-width: 100%; }
   display: grid;
   place-items: center;
   min-height: 24rem;
+  overflow: hidden;
 }
 
 .halo {
@@ -457,6 +458,7 @@ img { max-width: 100%; }
 .page-head {
   position: relative;
   padding: 3.2rem 0 1.4rem;
+  overflow: hidden;
 }
 
 .page-halo {
@@ -1008,7 +1010,8 @@ textarea.input { resize: vertical; min-height: 110px; }
 @media (max-width: 640px) {
   .container { padding-inline: 1rem; }
 
-  /* header / nav */
+  /* header / nav — solid bg instead of heavy blur on mobile */
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(31, 18, 10, 0.94); }
   .nav { padding-top: 0.5rem; padding-bottom: 0.5rem; }
   .brand { gap: 0.55rem; }
   .brand-logo { width: 38px; height: 38px; }
@@ -1040,13 +1043,14 @@ textarea.input { resize: vertical; min-height: 110px; }
   .reviews-grid { display: flex; flex-direction: column; gap: 2rem; }
   .review-form-card { order: -1; }
   .page-head { padding-top: 2.4rem; }
+  .page-halo { width: 230px; height: 230px; top: -50px; inset-inline-end: 0; }
   .page-sub { font-size: 0.95rem; }
   .mini-ticket { padding: 1rem 1.1rem; gap: 0.8rem; }
   .reviews-list { gap: 0.9rem; }
   .review-card { padding: 1.15rem; }
 
   /* form: unsticky + iOS zoom fix (inputs ≥ 16px) + bigger tap areas */
-  .review-form-card { position: static; padding: 1.45rem 1.25rem; }
+  .review-form-card { position: static; padding: 1.45rem 1.25rem; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .input { font-size: 1rem; }
   .rating-picker { gap: 0.45rem; }
   .star-btn { padding: 0.28rem; }
@@ -1055,11 +1059,12 @@ textarea.input { resize: vertical; min-height: 110px; }
   /* footer */
   .site-footer { margin-top: 2.4rem; padding: 2.4rem 0 calc(2rem + env(safe-area-inset-bottom, 0px)); }
 
-  /* background: lighter blur for perf */
-  .orb { filter: blur(50px); opacity: 0.45; }
+  /* background: lighter for perf — dust off, orbs smaller */
+  .orb { filter: blur(40px); opacity: 0.4; }
   .orb-a { width: 80vw; height: 80vw; }
   .orb-b { width: 74vw; height: 74vw; }
   .orb-c { width: 60vw; height: 60vw; }
+  .dust { display: none; }
 }
 
 /* ═══ Small phones (≤ 400px) ═══ */
