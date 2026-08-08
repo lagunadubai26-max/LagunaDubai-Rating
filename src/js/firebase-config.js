@@ -1,13 +1,13 @@
 // Firebase configuration — Laguna Dubai Rating
-// Project: lagunadubai-rating
+// Project: laguna-dubai-rating (account: lagunadubai26@gmail.com)
 // 1. Firestore Database → rules from firestore.rules in repo
 // 2. Data: collections `cafes` (doc `main`) + `reviews`
 
 const FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyBRjZQhGy7dPH_S6CujwgOwZ3P-ZedHixw',
-  authDomain: 'lagunadubai-rating.firebaseapp.com',
-  projectId: 'lagunadubai-rating',
-  storageBucket: 'lagunadubai-rating.firebasestorage.app',
-  messagingSenderId: '340672530161',
-  appId: '1:340672530161:web:c748980ae2bcb78afc0b50'
+  apiKey: 'AIzaSyCOdAAZPl7dprUa1KVve2fmsnJceKoP7ig',
+  authDomain: 'laguna-dubai-rating.firebaseapp.com',
+  projectId: 'laguna-dubai-rating',
+  storageBucket: 'laguna-dubai-rating.firebasestorage.app',
+  messagingSenderId: '392839987642',
+  appId: '1:392839987642:web:56e8a9433f5b08277b5d83'
 };
