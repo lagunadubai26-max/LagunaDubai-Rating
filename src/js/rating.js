@@ -253,39 +253,43 @@ function initForm() {
 // ── home page stats ──
 
 function watchHomeStats() {
-  const descEl = document.getElementById('cafeDesc');
-  const addressEl = document.getElementById('cafeAddress');
   const avgEl = document.getElementById('avgRating');
   const countEl = document.getElementById('ratingCount');
   const starsEl = document.getElementById('avgStars');
-  const coverEl = document.getElementById('coverImg');
-  if (!nameEl) return;
+  const avgR = document.getElementById('avgRatingR');
+  const starsR = document.getElementById('avgStarsR');
+  const countR = document.getElementById('ratingCountR');
+  if (!avgEl && !avgR) return;
 
-  db.collection('cafes')
-    .doc('main')
-    .get()
-    .then((snap) => {
-      if (!snap.exists) return;
-      const data = snap.data();
-      if (data.description) descEl.textContent = data.description;
-      if (data.address) addressEl.textContent = data.address;
-      if (data.coverImage) coverEl.src = data.coverImage;
-    })
-    .catch((err) => console.error('cafe load failed', err));
+  const descEl = document.getElementById('cafeDesc');
+  const addressEl = document.getElementById('cafeAddress');
+  const coverEl = document.getElementById('coverImg');
+
+  if (descEl || addressEl) {
+    db.collection('cafes')
+      .doc('main')
+      .get()
+      .then((snap) => {
+        if (!snap.exists) return;
+        const data = snap.data();
+        if (descEl && data.description) descEl.textContent = data.description;
+        if (addressEl && data.address) addressEl.textContent = data.address;
+        if (coverEl && data.coverImage) coverEl.src = data.coverImage;
+      })
+      .catch((err) => console.error('cafe load failed', err));
+  }
 
   REVIEWS_COL.onSnapshot(
     (snap) => {
       if (snap.empty) return;
       const total = snap.docs.reduce((sum, doc) => sum + (doc.data().rating || 0), 0);
       const avg = total / snap.size;
-      avgEl.textContent = avg.toFixed(1);
-      countEl.textContent = 'من ' + snap.size + ' تقييم';
-      starsEl.innerHTML = '';
-      starsEl.appendChild(starsRow(avg, 'star-lg'));
-
-      const avgR = document.getElementById('avgRatingR');
-      const starsR = document.getElementById('avgStarsR');
-      const countR = document.getElementById('ratingCountR');
+      if (avgEl) avgEl.textContent = avg.toFixed(1);
+      if (countEl) countEl.textContent = 'من ' + snap.size + ' تقييم';
+      if (starsEl) {
+        starsEl.innerHTML = '';
+        starsEl.appendChild(starsRow(avg, 'star-lg'));
+      }
       if (avgR) avgR.textContent = avg.toFixed(1);
       if (countR) countR.textContent = snap.size + ' تقييم';
       if (starsR) {
