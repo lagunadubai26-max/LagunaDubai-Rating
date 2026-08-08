@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ميت غمر أسفل كوبرى زفتى — رأيك يهمنا</title>
+  <meta name="description" content="رأيك يهمنا في ميت غمر أسفل كوبرى زفتى. شوف تقييمات الزوار وشارك تجربتك.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="شعار ميت غمر" class="brand-logo">
+        <span class="brand-name">ميت غمر</span>
+      </a>
+      <div class="nav-pill">
+        <a href="index.html" class="nav-link active">الرئيسية</a>
+        <a href="reviews.html" class="nav-link">التقييمات</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-text">
+        <p class="badge anim-rise"><span aria-hidden="true">✦</span> رأيك يهمنا</p>
+        <h1 id="cafeName" class="hero-title anim-rise stagger-1">ميت غمر أسفل كوبرى زفتى</h1>
+        <p id="cafeDesc" class="hero-desc anim-rise stagger-2">رأيك يهمنا، خبّرنا عن تجربتك.</p>
+        <p id="cafeAddress" class="hero-address anim-rise stagger-3">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+          </svg>
+          ميت غمر — أسفل كوبرى زفتى
+        </p>
+      </div>
+
+      <div class="hero-visual anim-rise stagger-2">
+        <div class="ring" aria-hidden="true"></div>
+        <div class="cover-card anim-floaty">
+          <img id="coverImg" src="images/logo.jpg" alt="شعار ميت غمر">
+          <svg class="cover-wave" viewBox="0 0 1440 64" fill="currentColor" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 32c120 16 240 24 360 16s240-24 360-16 240 24 360 16 240-24 360-8-240-16-360-8-240 24-360 16-240-24-360-16Z"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats container">
+      <div class="stats-block">
+        <p class="stats-label">متوسط التقييم</p>
+        <p id="avgRating" class="stats-number">—</p>
+        <div id="avgStars" class="stats-stars"></div>
+        <p id="ratingCount" class="stats-count">من 0 تقييم</p>
+      </div>
+      <div class="stats-cta">
+        <a href="reviews.html" class="btn lift">شارك رأيك</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="images/logo.jpg" alt="شعار ميت غمر" class="footer-logo">
+      <p class="footer-name">ميت غمر أسفل كوبرى زفتى</p>
+      <p class="footer-tagline">رأيك يهمنا.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/rating.js?v=1"></script>
+</body>
+</html>

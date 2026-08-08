@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── cafes: public read, admin writes only ──
+    match /cafes/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── reviews: public read + validated create (no login needed) ──
+    match /reviews/{id} {
+      allow read: if true;
+      allow create: if
+        request.resource.data.cafeId is string &&
+        request.resource.data.cafeId.size() > 0 &&
+        request.resource.data.reviewerName is string &&
+        request.resource.data.reviewerName.size() >= 2 &&
+        request.resource.data.reviewerName.size() <= 50 &&
+        request.resource.data.rating is int &&
+        request.resource.data.rating >= 1 &&
+        request.resource.data.rating <= 5 &&
+        request.resource.data.comment is string &&
+        request.resource.data.comment.size() >= 5 &&
+        request.resource.data.comment.size() <= 500 &&
+        request.resource.data.createdAt is timestamp;
+      allow update, delete: if false;
+    }
+  }
+}
