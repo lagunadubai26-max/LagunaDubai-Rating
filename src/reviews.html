@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -25,11 +25,29 @@
     </nav>
   </header>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>☕ رأيك يهمنا ✦ قهوة مختصة ✦ جلسات هادية ✦ شارك تجربتك ☕</span>
+      <span>☕ رأيك يهمنا ✦ قهوة مختصة ✦ جلسات هادية ✦ شارك تجربتك ☕</span>
+    </div>
+  </div>
+
   <main class="container">
     <header class="page-head anim-rise">
+      <div class="page-halo" aria-hidden="true"></div>
       <p class="eyebrow">✦ رأيك يهمنا</p>
       <h1 class="page-title">تقييمات الزوار</h1>
+      <p class="page-sub">كل رأي بيفرق معانا — كلمة حلوه ولا نقد بناء، بنسمع الكل.</p>
     </header>
+
+    <section class="mini-ticket anim-rise stagger-2">
+      <div class="mini-score">
+        <span class="mini-label">متوسط التقييم</span>
+        <span class="mini-number"><span id="avgRatingR">—</span><small>/5</small></span>
+      </div>
+      <div id="avgStarsR" class="mini-stars"></div>
+      <span id="ratingCountR" class="mini-count">0 تقييم</span>
+    </section>
 
     <div class="reviews-grid">
       <section>
@@ -104,6 +122,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
   <script src="js/firebase-config.js"></script>
-  <script src="js/rating.js?v=3"></script>
+  <script src="js/rating.js?v=4"></script>
 </body>
 </html>

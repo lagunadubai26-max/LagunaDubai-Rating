@@ -284,6 +284,16 @@ function watchHomeStats() {
       countEl.textContent = 'من ' + snap.size + ' تقييم';
       starsEl.innerHTML = '';
       starsEl.appendChild(starsRow(avg, 'star-lg'));
+
+      const avgR = document.getElementById('avgRatingR');
+      const starsR = document.getElementById('avgStarsR');
+      const countR = document.getElementById('ratingCountR');
+      if (avgR) avgR.textContent = avg.toFixed(1);
+      if (countR) countR.textContent = snap.size + ' تقييم';
+      if (starsR) {
+        starsR.innerHTML = '';
+        starsR.appendChild(starsRow(avg, 'star-sm'));
+      }
     },
     (error) => console.error('stats load failed', error)
   );
