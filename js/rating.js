@@ -253,7 +253,6 @@ function initForm() {
 // ── home page stats ──
 
 function watchHomeStats() {
-  const nameEl = document.getElementById('cafeName');
   const descEl = document.getElementById('cafeDesc');
   const addressEl = document.getElementById('cafeAddress');
   const avgEl = document.getElementById('avgRating');
@@ -268,7 +267,6 @@ function watchHomeStats() {
     .then((snap) => {
       if (!snap.exists) return;
       const data = snap.data();
-      if (data.name) nameEl.textContent = data.name;
       if (data.description) descEl.textContent = data.description;
       if (data.address) addressEl.textContent = data.address;
       if (data.coverImage) coverEl.src = data.coverImage;
