@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -32,9 +32,10 @@
 
     <div class="reviews-grid">
       <section>
-        <h2 id="reviewsCount" class="section-label">0 تقييم</h2>
+        <h2 class="section-label">عدد التقييمات <span id="reviewsCount" class="count-pill">0</span></h2>
         <ul id="reviewsList" class="reviews-list" aria-live="polite">
           <li id="reviewsEmpty" class="empty-state hidden">
+            <div class="empty-icon" aria-hidden="true">★</div>
             <p class="empty-title">لسه مفيش تقييمات.</p>
             <p class="empty-sub">خليك أول واحد يشارك رأيه!</p>
           </li>
@@ -47,6 +48,7 @@
         <p class="form-sub">خبّرنا عن تجربتك، رأيك يهمنا.</p>
 
         <div id="formSuccess" class="success-box hidden">
+          <div class="success-icon" aria-hidden="true">✓</div>
           <p class="success-title">مرسي عالمشاركة! تقييمك اتحفظ.</p>
           <p class="success-sub">انعش الصفحة عشان تشوفه في القائمة.</p>
         </div>
@@ -101,6 +103,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
   <script src="js/firebase-config.js"></script>
-  <script src="js/rating.js?v=1"></script>
+  <script src="js/rating.js?v=2"></script>
 </body>
 </html>

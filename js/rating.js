@@ -95,6 +95,19 @@ function initPicker() {
 
 // ── reviews list (reviews page) ──
 
+const AVATAR_COLORS = ['#0e7c86', '#e2693e', '#0a4b52', '#b45309', '#0f766e', '#9a3412'];
+
+function buildAvatar(name) {
+  const div = document.createElement('div');
+  div.className = 'avatar';
+  const clean = (name || 'زائر').trim();
+  div.textContent = clean.charAt(0);
+  let hash = 0;
+  for (let i = 0; i < clean.length; i++) hash = (hash * 31 + clean.charCodeAt(i)) % 997;
+  div.style.background = AVATAR_COLORS[hash % AVATAR_COLORS.length];
+  return div;
+}
+
 function buildReviewCard(doc) {
   const data = doc.data();
   const li = document.createElement('li');
@@ -102,6 +115,11 @@ function buildReviewCard(doc) {
 
   const head = document.createElement('div');
   head.className = 'review-head';
+
+  head.appendChild(buildAvatar(data.reviewerName));
+
+  const who = document.createElement('div');
+  who.className = 'review-who';
 
   const name = document.createElement('p');
   name.className = 'review-name';
@@ -112,8 +130,9 @@ function buildReviewCard(doc) {
   time.dateTime = data.createdAt ? data.createdAt.toDate().toISOString() : '';
   time.textContent = fmtDate(data.createdAt || new Date());
 
-  head.appendChild(name);
-  head.appendChild(time);
+  who.appendChild(name);
+  who.appendChild(time);
+  head.appendChild(who);
   li.appendChild(head);
 
   li.appendChild(starsRow(data.rating, 'star-sm'));
@@ -141,12 +160,11 @@ function watchReviews() {
       list.querySelectorAll('.review-card').forEach((el) => el.remove());
       if (snap.empty) {
         emptyEl.classList.remove('hidden');
-        countEl.textContent = '0 تقييم';
+        countEl.textContent = '0';
         return;
       }
       emptyEl.classList.add('hidden');
-      const count = snap.size;
-      countEl.textContent = count + ' تقييم';
+      countEl.textContent = String(snap.size);
       snap.docs.forEach((doc, i) => {
         const card = buildReviewCard(doc);
         card.classList.add('anim-rise', 'stagger-' + ((i % 4) + 1));
