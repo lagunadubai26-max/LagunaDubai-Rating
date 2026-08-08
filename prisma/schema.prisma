@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Cafe {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String
+  description String?
+  address     String?
+  coverImage  String?
+  createdAt   DateTime @default(now())
+  reviews     Review[]
+}
+
+model Review {
+  id           String   @id @default(uuid()) @db.Uuid
+  cafeId       String   @db.Uuid
+  cafe         Cafe     @relation(fields: [cafeId], references: [id], onDelete: Cascade)
+  reviewerName String
+  rating       Int
+  comment      String?
+  createdAt    DateTime @default(now())
+
+  @@index([cafeId])
+}
