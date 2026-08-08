@@ -334,6 +334,7 @@ img { max-width: 100%; }
   color: var(--ink);
   box-shadow: var(--shadow-card), var(--shadow-glow);
   position: relative;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .ticket {
