@@ -853,6 +853,88 @@ textarea.input { resize: vertical; min-height: 110px; }
 
 .footer-tagline { margin: 0; font-size: 0.92rem; color: var(--ink-faint); }
 
+/* ═══ animated background: aurora orbs + golden dust ═══ */
+
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.orb-a {
+  top: -14%;
+  left: -12%;
+  width: 46vw;
+  height: 46vw;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.3), transparent 68%);
+  animation: driftA 36s ease-in-out infinite alternate;
+}
+
+.orb-b {
+  bottom: -18%;
+  right: -10%;
+  width: 42vw;
+  height: 42vw;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.22), transparent 68%);
+  animation: driftB 44s ease-in-out infinite alternate;
+}
+
+.orb-c {
+  top: 42%;
+  left: 52%;
+  width: 34vw;
+  height: 34vw;
+  background: radial-gradient(circle, rgba(250, 243, 230, 0.1), transparent 70%);
+  animation: driftC 52s ease-in-out infinite alternate;
+}
+
+@keyframes driftA {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(16vw, 12vh) scale(1.18); }
+}
+
+@keyframes driftB {
+  from { transform: translate(0, 0) scale(1.1); }
+  to { transform: translate(-14vw, -14vh) scale(0.92); }
+}
+
+@keyframes driftC {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-10vw, 8vh) scale(1.15); }
+}
+
+.dust {
+  position: absolute;
+  bottom: -14px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.95), rgba(251, 191, 36, 0));
+  box-shadow: 0 0 8px 1px rgba(251, 191, 36, 0.35);
+  opacity: 0;
+  animation: dustUp var(--dur) linear infinite;
+  animation-delay: var(--dl);
+  will-change: transform, opacity;
+}
+
+@keyframes dustUp {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 0.85; }
+  85% { opacity: 0.5; }
+  100% { transform: translate(var(--sway), -108vh); opacity: 0; }
+}
+
 /* ── Motion ── */
 
 @keyframes rise {
@@ -909,5 +991,7 @@ textarea.input { resize: vertical; min-height: 110px; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .anim-floaty, .badge-dot, .halo, .orbit, .steam { animation: none !important; }
+  .anim-floaty, .badge-dot, .halo, .orbit, .steam, .orb, .dust { animation: none !important; }
+  .dust { display: none; }
+  .orb { opacity: 0.3; }
 }
