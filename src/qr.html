@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagunaDubai / لاجونا دبي — QR Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <style>
+    .qr-page{padding:48px 16px 72px}
+    .qr-head{text-align:center;max-width:640px;margin:0 auto 44px}
+    .qr-head h1{font-family:'El Messiri','Cairo',sans-serif;font-size:clamp(26px,4vw,38px);color:var(--ink);margin:0 0 8px}
+    .qr-head p{color:var(--ink-soft);font-size:15px;margin:0}
+    .qr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:960px;margin:0 auto}
+    .qr-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;text-align:center;box-shadow:var(--shadow-card)}
+    .qr-card .qr-logo{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;background:var(--espresso);display:grid;place-items:center;overflow:hidden;padding:6px}
+    .qr-card .qr-logo img{width:100%;height:100%;object-fit:contain}
+    .qr-card h3{font-family:'El Messiri',sans-serif;font-size:21px;color:var(--ink);margin:0 0 4px}
+    .qr-card .sub{color:var(--ink-soft);font-size:13px;margin-bottom:18px}
+    .qr-frame{display:inline-block;background:#fff;padding:14px;border-radius:14px;border:2px dashed var(--line);margin-bottom:16px}
+    .qr-frame .qr-code{display:grid;place-items:center}
+    .qr-card .qr-url{font-size:11px;color:var(--ink-faint);direction:ltr;word-break:break-all;margin-bottom:16px}
+    .qr-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .qr-btn{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#fff;border:none;padding:11px 20px;border-radius:999px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:.25s;box-shadow:0 10px 24px -10px rgba(217,119,6,.6)}
+    .qr-btn:hover{background:var(--amber-2);transform:translateY(-2px)}
+    .qr-btn.ghost{background:var(--cream);color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+    .qr-btn.ghost:hover{background:var(--cream-2)}
+    /* ── Poster (طباعة/تحميل) ── */
+    .poster{width:340px;margin:44px auto 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px;text-align:center;box-shadow:var(--shadow-card)}
+    .poster .p-logo{width:76px;height:76px;border-radius:50%;background:var(--espresso);margin:0 auto 12px;display:grid;place-items:center;overflow:hidden;padding:10px}
+    .poster .p-logo img{width:100%;height:100%;object-fit:contain}
+    .poster h2{font-family:'El Messiri',sans-serif;font-size:24px;color:var(--ink);margin:0}
+    .poster .p-tag{color:var(--amber);font-weight:800;font-size:14px;margin:6px 0 16px}
+    .poster .p-qr{background:#fff;border:2px dashed var(--line);border-radius:14px;padding:14px;display:grid;place-items:center;margin-bottom:14px}
+    .poster .p-addr{color:var(--ink-soft);font-size:12px;line-height:1.8;margin:0}
+    .poster .p-addr svg{width:13px;height:13px;vertical-align:-2px}
+    @media (max-width:520px){.qr-grid{grid-template-columns:1fr}}
+    @media print{
+      body{background:#fff!important}
+      .site-header,.qr-head .qr-actions,.qr-actions,.qr-btn,.no-print{display:none!important}
+      .qr-page{padding:0}
+      .poster{box-shadow:none;border:none;margin:0 auto}
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true">
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
+</div>
+
+<header class="site-header no-print">
+  <nav class="nav container">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="شعار الكافيه" class="brand-logo">
+      <span class="brand-name">LagunaDubai <em>لاجونا دبي</em></span>
+    </a>
+    <div class="nav-pill">
+      <a href="index.html" class="nav-link">الرئيسية</a>
+      <a href="reviews.html" class="nav-link">التقييمات</a>
+      <a href="qr.html" class="nav-link active">QR Code</a>
+    </div>
+  </nav>
+</header>
+
+<main class="qr-page">
+  <div class="qr-head no-print">
+    <h1>رموز QR — شاركنا رأيك</h1>
+    <p>اطبع الكود وحطه على الترابيزات — الزبون يمسح ويقيّم تجربته في ثواني.</p>
+  </div>
+
+  <div class="qr-grid no-print">
+    <div class="qr-card">
+      <div class="qr-logo"><img src="images/logo.png" alt=""></div>
+      <h3>صفحة التقييم</h3>
+      <p class="sub">امسح الكود عشان تقييم سريع</p>
+      <div class="qr-frame"><div class="qr-code" id="qrReviews"></div></div>
+      <div class="qr-url" id="urlReviews"></div>
+      <div class="qr-actions">
+        <button class="qr-btn" data-target="reviews"><i class="fa-solid fa-download"></i> تحميل PNG</button>
+        <button class="qr-btn ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+      </div>
+    </div>
+
+    <div class="qr-card">
+      <div class="qr-logo"><img src="images/logo.png" alt=""></div>
+      <h3>الموقع الرئيسي</h3>
+      <p class="sub">امسح الكود عشان تدخل الموقع</p>
+      <div class="qr-frame"><div class="qr-code" id="qrMain"></div></div>
+      <div class="qr-url" id="urlMain"></div>
+      <div class="qr-actions">
+        <button class="qr-btn" data-target="main"><i class="fa-solid fa-download"></i> تحميل PNG</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster" id="poster">
+    <div class="p-logo"><img src="images/logo.png" alt=""></div>
+    <h2>LagunaDubai</h2>
+    <p class="p-tag">☕ رأيك يهمنا — امسح وقيّمنا</p>
+    <div class="p-qr" id="posterQr"></div>
+    <p class="p-addr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+      ميت غمر — أسفل كوبري زفتى
+    </p>
+    <div style="margin-top:18px" class="no-print">
+      <button class="qr-btn" id="downloadPoster"><i class="fa-solid fa-image"></i> تحميل البوستر</button>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  const BASE = window.location.origin + window.location.pathname.replace(/qr\.html.*$/, '');
+  const reviewsUrl = BASE + 'reviews.html';
+  const mainUrl = BASE;
+  const opts = { width: 200, height: 200, colorDark: '#1f120a', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H };
+
+  function makeQr(el, text) {
+    new QRCode(document.getElementById(el), Object.assign({}, opts, { text }));
+  }
+  makeQr('qrReviews', reviewsUrl);
+  makeQr('qrMain', mainUrl);
+  makeQr('posterQr', reviewsUrl);
+  document.getElementById('urlReviews').textContent = reviewsUrl;
+  document.getElementById('urlMain').textContent = mainUrl;
+
+  function downloadCanvas(canvas, name) {
+    const a = document.createElement('a');
+    a.download = name;
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  document.querySelectorAll('.qr-btn[data-target]').forEach(btn => {
+    btn.onclick = () => {
+      const canvas = document.querySelector('#' + (btn.dataset.target === 'reviews' ? 'qrReviews' : 'qrMain') + ' canvas');
+      if (canvas) downloadCanvas(canvas, 'QR-' + (btn.dataset.target === 'reviews' ? 'Rating' : 'Main') + '.png');
+    };
+  });
+
+  document.getElementById('downloadPoster').onclick = () => {
+    const poster = document.getElementById('poster');
+    const scale = 2;
+    const W = poster.offsetWidth * scale, H = poster.offsetHeight * scale;
+    const cv = document.createElement('canvas');
+    cv.width = W; cv.height = H;
+    const ctx = cv.getContext('2d');
+    ctx.fillStyle = '#fffaf0';
+    ctx.fillRect(0, 0, W, H);
+    const cs = getComputedStyle(poster);
+    ctx.fillStyle = cs.backgroundColor;
+    ctx.fillRect(0, 0, W, H);
+    const qrCanvas = document.querySelector('#posterQr canvas');
+    const drawImg = (img, dw, dh, dx, dy, radius) => {
+      ctx.save();
+      if (dx === undefined) { dx = (W - dw) / 2; dy = 0; }
+      ctx.drawImage(img, dx, dy, dw, dh);
+      ctx.restore();
+    };
+    const logo = document.querySelector('.p-logo img');
+    const logoW = logo.offsetWidth * scale, logoH = logo.offsetHeight * scale;
+    // logo (rounded)
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(W / 2, logoH / 2 + 16 * scale, logoW / 2, 0, Math.PI * 2);
+    ctx.fillStyle = '#1f120a';
+    ctx.fill();
+    ctx.closePath();
+    ctx.clip();
+    drawImg(logo, logoW, logoH, W / 2 - logoW / 2, 16 * scale);
+    ctx.restore();
+    // title
+    ctx.fillStyle = '#33231a';
+    ctx.font = '800 ' + Math.round(30 * scale) + 'px "El Messiri", "Cairo", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('LagunaDubai', W / 2, (16 * scale + logoH + 30 * scale));
+    ctx.fillStyle = '#d97706';
+    ctx.font = '800 ' + Math.round(14 * scale) + 'px "Cairo", sans-serif';
+    ctx.fillText('☕ رأيك يهمنا — امسح وقيّمنا', W / 2, (16 * scale + logoH + 30 * scale + 34 * scale));
+    // QR centered
+    const qW = 200 * scale, qH = 200 * scale;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect((W - qW) / 2 - 12 * scale, (16 * scale + logoH + 78 * scale), qW + 24 * scale, qH + 24 * scale);
+    drawImg(qrCanvas, qW, qH, (W - qW) / 2, (16 * scale + logoH + 90 * scale));
+    // address
+    ctx.fillStyle = '#6b5847';
+    ctx.font = '600 ' + Math.round(13 * scale) + 'px "Cairo", sans-serif';
+    ctx.fillText('ميت غمر — أسفل كوبري زفتى', W / 2, (16 * scale + logoH + 90 * scale + qH + 40 * scale));
+    const a = document.createElement('a');
+    a.download = 'LagunaDubai-QR-Poster.png';
+    a.href = cv.toDataURL('image/png');
+    a.click();
+  };
+</script>
+</body>
+</html>
